@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2f1f8d4-dd4c-44d9-9172-484c1a8bc8e2" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Webroot\Java Workspace\CoffeeMaker_JUnit\OpdrachtC2\bin\.gitignore" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opdrachtc2.properties" afterPath="$PROJECT_DIR$/opdrachtc2.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opdrachtc2.xml" afterPath="$PROJECT_DIR$/opdrachtc2.xml" />
     </list>
     <ignored path="OpdrachtC2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,6 +28,7 @@
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="260" />
@@ -138,12 +140,12 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
-    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
+    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="opdrachtc2" />
   </component>
   <component name="RunManager" selected="JUnit.CoffeeMakerTest">
