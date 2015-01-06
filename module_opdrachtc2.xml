@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_opdrachtc2" default="compile.module.opdrachtc2">
+  <dirname property="module.opdrachtc2.basedir" file="${ant.file.module_opdrachtc2}"/>
+  
+  <property name="module.jdk.home.opdrachtc2" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.opdrachtc2" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.opdrachtc2" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.opdrachtc2" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="opdrachtc2.output.dir" value="${module.opdrachtc2.basedir}/out/production/OpdrachtC2"/>
+  <property name="opdrachtc2.testoutput.dir" value="${module.opdrachtc2.basedir}/out/test/OpdrachtC2"/>
+  
+  <path id="opdrachtc2.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="opdrachtc2.module.production.classpath">
+    <path refid="${module.jdk.classpath.opdrachtc2}"/>
+  </path>
+  
+  <path id="opdrachtc2.runtime.production.module.classpath">
+    <pathelement location="${opdrachtc2.output.dir}"/>
+  </path>
+  
+  <path id="opdrachtc2.module.classpath">
+    <path refid="${module.jdk.classpath.opdrachtc2}"/>
+    <pathelement location="${opdrachtc2.output.dir}"/>
+  </path>
+  
+  <path id="opdrachtc2.runtime.module.classpath">
+    <pathelement location="${opdrachtc2.testoutput.dir}"/>
+    <pathelement location="${opdrachtc2.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.opdrachtc2">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.opdrachtc2">
+    <patternset refid="excluded.from.module.opdrachtc2"/>
+  </patternset>
+  
+  <path id="opdrachtc2.module.sourcepath">
+    <dirset dir="${module.opdrachtc2.basedir}">
+      <include name="src"/>
+      <include name="unittests"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.opdrachtc2" depends="compile.module.opdrachtc2.production,compile.module.opdrachtc2.tests" description="Compile module OpdrachtC2"/>
+  
+  <target name="compile.module.opdrachtc2.production" depends="register.custom.compilers" description="Compile module OpdrachtC2; production classes">
+    <mkdir dir="${opdrachtc2.output.dir}"/>
+    <javac2 destdir="${opdrachtc2.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.opdrachtc2}/javac">
+      <compilerarg line="${compiler.args.opdrachtc2}"/>
+      <bootclasspath refid="opdrachtc2.module.bootclasspath"/>
+      <classpath refid="opdrachtc2.module.production.classpath"/>
+      <src refid="opdrachtc2.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.opdrachtc2"/>
+    </javac2>
+    
+    <copy todir="${opdrachtc2.output.dir}">
+      <fileset dir="${module.opdrachtc2.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.opdrachtc2.basedir}/unittests">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.opdrachtc2.tests" depends="register.custom.compilers,compile.module.opdrachtc2.production" description="compile module OpdrachtC2; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.opdrachtc2" description="cleanup module">
+    <delete dir="${opdrachtc2.output.dir}"/>
+    <delete dir="${opdrachtc2.testoutput.dir}"/>
+  </target>
+</project>
